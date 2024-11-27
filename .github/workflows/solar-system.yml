@@ -16,7 +16,7 @@ jobs:
         name: unit testing
         strategy:
             matrix:
-              Node_V: ["18","19","20"]
+              Node_V: [18,19,20]
               os: [ubuntu-latest,macos-latest]
               exclude:
                 - Node_V: 18
