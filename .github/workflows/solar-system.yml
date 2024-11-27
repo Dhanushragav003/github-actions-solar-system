@@ -63,6 +63,8 @@ jobs:
             #   uses: actions/upload-artifact@v4
             #   with:
             #     name: coverage-result
-            #     path: ./test-results.xml
+            #     path: ./coverage/test-results.xml
             - name: list
-              run : ls
+              run : |
+                cd coverage
+                ls
