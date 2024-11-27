@@ -14,13 +14,13 @@ jobs:
     
     unit-testing:
         name: unit testing
-        # strategy:
-        #     matrix:
-        #       Node_V: [18,19,20]
-        #       os: [ubuntu-latest,macos-latest]
-        #       exclude:
-        #         - Node_V: 18
-        #           os: macos-latest
+        strategy:
+            matrix:
+              Node_V: [18,19,20]
+              os: [ubuntu-latest,macos-latest]
+              exclude:
+                - Node_V: 18
+                  os: macos-latest
 
         runs-on: ubuntu-latest
         steps:
@@ -36,11 +36,11 @@ jobs:
               run : |
                 npm test
                 ls
-            # - name: upload
-            #   uses: actions/upload-artifact@v4
-            #   with:
-            #     name: test-result
-            #     path: ./test-results.xml
+            - name: upload
+              uses: actions/upload-artifact@v4
+              with:
+                name: test-result
+                path: ./test-results.xml
     code-coverage:
         name: code coverage
         runs-on: ubuntu-latest
@@ -59,12 +59,9 @@ jobs:
               run : |
                 npm run coverage
                 
-            # - name: upload
-            #   uses: actions/upload-artifact@v4
-            #   with:
-            #     name: coverage-result
-            #     path: ./coverage/test-results.xml
-            - name: list
-              run : |
-                cd coverage
-                ls
+            - name: upload
+              uses: actions/upload-artifact@v4
+              with:
+                name: coverage-result
+                path: ./coverage
+            
