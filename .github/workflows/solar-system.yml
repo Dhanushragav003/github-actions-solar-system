@@ -58,11 +58,11 @@ jobs:
               continue-on-error: true
               run : |
                 npm run coverage
-                ls
+                
             # - name: upload
             #   uses: actions/upload-artifact@v4
             #   with:
             #     name: coverage-result
             #     path: ./test-results.xml
-            - name: finish
-              run : echo "finish"
+            - name: list
+              run : ls
