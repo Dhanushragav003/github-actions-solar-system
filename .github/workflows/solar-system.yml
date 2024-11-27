@@ -39,5 +39,5 @@ jobs:
             - name: upload
               uses: actions/upload-artifact@v4
               with:
-                name: test-result
+                name: test-result ${{matrix.os}},${{matrix.Node_V}}
                 path: ./test-results.xml
