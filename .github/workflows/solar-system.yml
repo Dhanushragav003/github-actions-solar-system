@@ -14,13 +14,13 @@ jobs:
     
     unit-testing:
         name: unit testing
-        strategy:
-            matrix:
-              Node_V: [18,19,20]
-              os: [ubuntu-latest,macos-latest]
-              exclude:
-                - Node_V: 18
-                  os: macos-latest
+        # strategy:
+        #     matrix:
+        #       Node_V: [18,19,20]
+        #       os: [ubuntu-latest,macos-latest]
+        #       exclude:
+        #         - Node_V: 18
+        #           os: macos-latest
 
         runs-on: ubuntu-latest
         steps:
@@ -44,7 +44,7 @@ jobs:
     code-coverage:
         name: code coverage
         runs-on: ubuntu-latest
-        continue-on-error: true
+        
         steps:
             - name: checkout
               uses: actions/checkout@v4
@@ -63,4 +63,5 @@ jobs:
             #     name: coverage-result
             #     path: ./test-results.xml
             - name: finish
+              continue-on-error: true
               run : echo "finish"
