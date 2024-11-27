@@ -5,14 +5,16 @@ on:
         branches:
             - main
             - 'feature/*'
-env:
-    MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData' 
-    MONGO_USERNAME: ${{vars.MONGO_USERNAME}} 
-    MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD}}
 
 
 jobs:
+    
     unit-testing:
+        env:
+            MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData' 
+            MONGO_USERNAME: ${{vars.MONGO_USERNAME}} 
+            MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD}}
+
         runs-on: ubuntu-latest
         steps:
             - name: checkout repo
