@@ -41,3 +41,23 @@ jobs:
               with:
                 name: test-result ${{matrix.os}},${{matrix.Node_V}}
                 path: ./test-results.xml
+    code-coverage:
+        name: code coverage
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+            - name: setup-nodejs
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: install depen..
+              run : npm install
+            - name: unit-test
+              run : |
+                npm run coverage
+            # - name: upload
+            #   uses: actions/upload-artifact@v4
+            #   with:
+            #     name: coverage-result
+            #     path: ./test-results.xml
