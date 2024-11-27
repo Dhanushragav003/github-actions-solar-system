@@ -29,8 +29,8 @@ jobs:
               run : |
                 npm test
                 ls
-            # - name: upload
-            #   uses: actions/upload-artifact@v4
-            #   with:
-            #     name: 
-            #     path: ./app-test.js
+            - name: upload
+              uses: actions/upload-artifact@v4
+              with:
+                name: 
+                path: ./test-results.xml
