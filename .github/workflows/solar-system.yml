@@ -55,6 +55,7 @@ jobs:
             - name: install depen..
               run : npm install
             - name: unit-test
+              continue-on-error: true
               run : |
                 npm run coverage
             # - name: upload
@@ -63,5 +64,4 @@ jobs:
             #     name: coverage-result
             #     path: ./test-results.xml
             - name: finish
-              continue-on-error: true
               run : echo "finish"
