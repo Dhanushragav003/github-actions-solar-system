@@ -11,7 +11,7 @@ env:
     MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD}}
 
 jobs:
-    
+      
     unit-testing:
         name: unit testing
         strategy:
@@ -37,6 +37,7 @@ jobs:
                 npm test
                 ls
             - name: upload
+              if : always()
               uses: actions/upload-artifact@v4
               with:
                 name: test-result ${{matrix.os}},${{matrix.Node_V}}
