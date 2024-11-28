@@ -120,14 +120,14 @@ jobs:
 
             wget -q -O - http://127.0.0.1:3000/live | grep live
         
-        - name: Docker push
+        - name: push into registry
           uses: docker/build-push-action@v4 
           with: 
             context: .
             push: true
             tags: |
               ${{vars.DOCKERHUB_USERNAME}}/solar-system:${{ github.sha }} 
-              gchr.io/${{github.repository_owner}}/solar-system:${{github.sha}}
+              gchr.io/dhanushragav003/solar-system:${{github.sha}}
 
   
 
