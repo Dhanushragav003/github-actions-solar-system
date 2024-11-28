@@ -105,7 +105,7 @@ jobs:
               -p 3000:3000
               -e MONGO_URI=$MONGO URI \
               -e MONGO_USERNAME=$MONGO_USERNAME \ 
-              -e MONGO_PASSWORD $MONGO_PASSWORD
+              -e MONGO_PASSWORD $MONGO_PASSWORD \
               ${{env.DOCKERHUB_USERNAME}}/solar-system:${{ github.sha }} 
             echo "hi"
 
