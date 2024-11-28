@@ -30,6 +30,12 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{matrix.Node_V}}
+            - name: cache depen..
+              uses: actions/cache@v3
+              with:
+                path: node_modules
+                key: ${{runner.os}}-node-modules-${{hashFiles('package.json')}}
+            
             - name: install depen..
               run : npm install
             - name: unit-test
@@ -39,9 +45,12 @@ jobs:
             - name: upload
               if : always()
               uses: actions/upload-artifact@v4
+              
               with:
                 name: test-result ${{matrix.os}},${{matrix.Node_V}}
                 path: ./test-results.xml
+                rentention-days: 1
+                
     code-coverage:
         name: code coverage
         runs-on: ubuntu-latest
@@ -53,6 +62,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: 18
+            - name: cache depen..
+              uses: actions/cache@v3
+              with:
+                path: node_modules
+                key: ${{runner.os}}-node-modules-${{hashFiles('package.json')}}
             - name: install depen..
               run : npm install
             - name: unit-test
@@ -65,4 +79,5 @@ jobs:
               with:
                 name: coverage-result
                 path: ./coverage
+                rentention-days: 1
             
