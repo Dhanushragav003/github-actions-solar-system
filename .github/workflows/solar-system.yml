@@ -30,12 +30,12 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{matrix.Node_V}}
-            - name: cache depen..
-              uses: actions/cache@v3
-              with:
-                path: node_modules
-                key: ${{runner.os}}-node-modules-${{hashFiles('package.json')}}
-            
+            - name: Cache NPM dependencies 
+              uses: actions/cache@v3 
+              with: 
+                path: node_modules I 
+                key: $({ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+    
             - name: install depen..
               run : npm install
             - name: unit-test
@@ -62,11 +62,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: 18
-            - name: cache depen..
-              uses: actions/cache@v3
-              with:
-                path: node_modules
-                key: ${{runner.os}}-node-modules-${{hashFiles('package.json')}}
+            - name: Cache NPM dependencies 
+              uses: actions/cache@v3 
+              with: 
+                path: node_modules I 
+                key: $({ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
             - name: install depen..
               run : npm install
             - name: unit-test
