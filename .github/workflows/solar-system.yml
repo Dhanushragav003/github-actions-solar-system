@@ -101,8 +101,6 @@ jobs:
         - name: Docker Image Testing 
           run: |
             docker images
-            docker run --name solar-system-app -d -p 3000:3000 -e MONGO_URI=$MONGO_URI -e MONGO_USERNAME="superuser" -e MONGO PASSWORD=${{ secrets.MONGO_PASSWORD}}
-        
-
+            docker run --name solar-system-app -d -p 3000:3000 
 
   
